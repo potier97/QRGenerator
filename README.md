@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# QR Code Generator
 
-## Getting Started
+<p align="center">
+  <a href="http://nipoanz.com/" target="blank"><img src="https://github.com/potier97/rfid-access-iot/raw/main/assets/image-6.png" width="300" alt="NPA Logo" /></a>
+</p>
 
-First, run the development server:
+A modern web application for generating custom QR codes with multiple customization options. Built with React and TypeScript.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+![QR Code Example](./public/qr.png)
+
+## Features
+
+- 🎨 Complete Design Customization:
+  - QR Code Color
+  - Background Color
+  - Adjustable Size
+  - Rounded Borders
+  - Customizable Margins
+  - Logo Support
+
+- 📱 Multiple QR Types:
+  - URLs
+  - Email Addresses
+  - Phone Numbers
+  - Locations
+  - WiFi Networks
+  - Plain Text
+
+- ✨ Additional Features:
+  - Real-time Validation
+  - Instant Preview
+  - Intuitive Interface
+  - Responsive Design
+  - High-quality Export
+
+## Technologies Used
+
+- **Framework**: React with TypeScript
+- **Styling**: Tailwind CSS
+- **Components**:
+  - `qrcode.react` for QR generation
+  - `react-colorful` for color pickers
+  - `@heroicons/react` for iconography
+  - `next.js` as main framework
+
+## Main Dependencies
+
+```json
+{
+  "dependencies": {
+    "react": "^18.x",
+    "react-dom": "^18.x",
+    "next": "^13.x",
+    "qrcode.react": "^3.x",
+    "react-colorful": "^5.x",
+    "@heroicons/react": "^2.x",
+    "tailwindcss": "^3.x"
+  }
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-## Learn More
+3. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Select QR Type**:
+   - Choose between URL, Email, Phone, Location, WiFi, or Text
+   - Each type has its own validation and format
 
-## Deploy on Vercel
+2. **Customize Content**:
+   - Enter information according to selected type
+   - Real-time validation will guide you
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Adjust Design**:
+   - Modify colors using picker or hexadecimal codes
+   - Adjust size with slider
+   - Customize rounded borders
+   - Adjust QR margins
+   - Optionally add a logo (PNG format)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Download**:
+   - Download button will be enabled when content is valid
+   - Image will be downloaded in high-quality PNG format
+
+## Contributions
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature-new-functionality`)
+3. Commit your changes (`git commit -am 'Add new functionality'`)
+4. Push to the branch (`git push origin feature-new-functionality`)
+5. Create a Pull Request
+
+## Author
+
+- [Nicolas Potier](https://github.com/potier97/)
+
+## License
+
+This project is under the MIT License.
