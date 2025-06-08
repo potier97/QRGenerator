@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
+export function middleware() {
   const response = NextResponse.next();
 
   // Agregar headers de seguridad básicos
@@ -15,11 +14,11 @@ export function middleware(request: NextRequest) {
     'Content-Security-Policy',
     `
       default-src 'self';
-      script-src 'self' 'unsafe-inline' 'unsafe-eval' *.firebaseapp.com *.firebase.com *.firebaseio.com *.googleapis.com;
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' *.firebaseapp.com *.firebase.com *.firebaseio.com *.googleapis.com *.google-analytics.com *.googletagmanager.com;
       style-src 'self' 'unsafe-inline' fonts.googleapis.com;
       img-src 'self' blob: data: https:;
       font-src 'self' fonts.gstatic.com;
-      connect-src 'self' *.firebaseapp.com *.firebase.com *.firebaseio.com *.googleapis.com;
+      connect-src 'self' *.firebaseapp.com *.firebase.com *.firebaseio.com *.googleapis.com *.google-analytics.com *.googletagmanager.com;
       frame-src 'self' *.firebaseapp.com;
       object-src 'none';
     `.replace(/\s+/g, ' ').trim()

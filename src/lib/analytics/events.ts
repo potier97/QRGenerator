@@ -30,7 +30,6 @@ interface LogoUploadEvent {
 // Funciones para registrar eventos
 export const logQRGeneration = (data: QRGenerationEvent) => {
   if (analytics) {
-    console.log('logQRGeneration', data);
     logEvent(analytics, 'qr_generated', {
       qr_type: data.type,
       content_length: data.contentLength,
@@ -48,7 +47,6 @@ export const logQRGeneration = (data: QRGenerationEvent) => {
 
 export const logColorSelection = (data: ColorSelectionEvent) => {
   if (analytics) {
-    console.log('logColorSelection', data);
     logEvent(analytics, 'color_selected', {
       color_type: data.colorType,
       color_value: data.colorValue
@@ -58,7 +56,6 @@ export const logColorSelection = (data: ColorSelectionEvent) => {
 
 export const logLogoUpload = (data: LogoUploadEvent) => {
   if (analytics) {
-    console.log('logLogoUpload', data);
     logEvent(analytics, 'logo_uploaded', {
       format: data.format,
       size: data.size
@@ -72,7 +69,6 @@ export const logUserInteraction = (
   details?: Record<string, string | number | boolean>
 ) => {
   if (analytics) {
-    console.log('logUserInteraction', action, details);
     logEvent(analytics, 'user_interaction', {
       action,
       ...details
