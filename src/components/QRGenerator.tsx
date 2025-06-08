@@ -77,7 +77,9 @@ export default function QRGenerator() {
 
       const reader = new FileReader();
       reader.onload = (e) => {
-        setLogo(e.target?.result as string);
+        if (e.target?.result) {
+          setLogo(e.target.result as string);
+        }
       };
       reader.readAsDataURL(file);
     }
@@ -156,7 +158,7 @@ export default function QRGenerator() {
   useEffect(() => {
     if (logo) {
       // Procesar el logo para hacerlo circular
-      const img = new Image();
+      const img = document.createElement('img');
       img.onload = () => {
         const canvas = document.createElement('canvas');
         const size = Math.max(img.width, img.height);
@@ -587,22 +589,27 @@ export default function QRGenerator() {
                 {logo ? (
                   <div className="relative">
                     <div className="w-12 h-12 rounded-full overflow-hidden bg-white shadow-sm">
-                      <img 
-                        src={processedLogo || logo} 
-                        alt="Logo preview" 
-                        className="w-full h-full object-cover"
-                      />
-                      <button
-                        onClick={removeLogo}
-                        className="absolute -top-1.5 -right-1.5 w-6 h-6 flex items-center justify-center bg-red-500 hover:bg-red-600 text-white rounded-full transition-colors group"
-                        title="Remover logo"
-                      >
-                        <XMarkIcon className="w-4 h-4" />
-                        <span className="absolute invisible group-hover:visible bg-gray-800 text-white text-xs py-1 px-2 rounded -mt-8 -ml-2 whitespace-nowrap">
-                          Remover logo
-                        </span>
-                      </button>
+                      {(processedLogo || logo) && (
+                        <>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img 
+                            src={processedLogo || logo} 
+                            alt="Logo preview"
+                            className="w-full h-full object-cover"
+                          />
+                        </>
+                      )}
                     </div>
+                    <button
+                      onClick={removeLogo}
+                      className="absolute -top-1.5 -right-1.5 w-6 h-6 flex items-center justify-center bg-red-500 hover:bg-red-600 text-white rounded-full transition-colors group"
+                      title="Remover logo"
+                    >
+                      <XMarkIcon className="w-4 h-4" />
+                      <span className="absolute invisible group-hover:visible bg-gray-800 text-white text-xs py-1 px-2 rounded -mt-8 -ml-2 whitespace-nowrap">
+                        Remover logo
+                      </span>
+                    </button>
                   </div>
                 ) : (
                   <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center">
